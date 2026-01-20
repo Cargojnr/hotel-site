@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Luxury Hotel Design System */
+
+@layer base {
+  :root {
+    /* Core palette - Warm luxury */
+    --background: 30 10% 5%;
+    --foreground: 40 20% 92%;
+    
+    /* Surface hierarchy */
+    --card: 30 8% 8%;
+    --card-foreground: 40 20% 92%;
+    --card-elevated: 30 8% 12%;
+    
+    --popover: 30 8% 8%;
+    --popover-foreground: 40 20% 92%;
+    
+    /* Brand accent - Burnished gold */
+    --primary: 38 70% 50%;
+    --primary-foreground: 30 10% 5%;
+    --primary-glow: 38 80% 60%;
+    
+    /* Ivory secondary */
+    --secondary: 40 15% 85%;
+    --secondary-foreground: 30 10% 10%;
+    
+    /* Muted tones */
+    --muted: 30 5% 18%;
+    --muted-foreground: 30 8% 55%;
+    
+    /* Warm accent */
+    --accent: 25 40% 20%;
+    --accent-foreground: 40 20% 92%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 30 8% 18%;
+    --input: 30 8% 15%;
+    --ring: 38 70% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Shadows with warmth */
+    --shadow-soft: 0 4px 20px -4px hsl(30 10% 0% / 0.5);
+    --shadow-glow: 0 10px 40px -10px hsl(38 70% 50% / 0.25);
+    --shadow-elevated: 0 25px 50px -12px hsl(30 10% 0% / 0.6);
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(30 10% 0% / 0.7) 0%, hsl(30 10% 0% / 0.4) 50%, hsl(30 10% 0% / 0.85) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(30 8% 12%) 0%, hsl(30 8% 8%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(32 65% 45%) 100%);
+    
+    /* Typography scale - fluid */
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+    --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+    --text-3xl: clamp(1.875rem, 1.4rem + 2.4vw, 3rem);
+    --text-4xl: clamp(2.25rem, 1.6rem + 3.25vw, 4rem);
+    --text-5xl: clamp(3rem, 2rem + 5vw, 6rem);
+    --text-display: clamp(3.5rem, 2rem + 7.5vw, 8rem);
+    
+    /* Spacing scale */
+    --space-section: clamp(5rem, 8vw, 10rem);
+    --space-content: clamp(2rem, 4vw, 4rem);
+    
+    /* Sidebar vars (keeping defaults) */
+    --sidebar-background: 30 8% 8%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 38 70% 50%;
+    --sidebar-primary-foreground: 30 10% 5%;
+    --sidebar-accent: 30 8% 15%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 30 8% 18%;
+    --sidebar-ring: 38 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@layer components {
+  /* Typography classes */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  .text-display {
+    font-size: var(--text-display);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  
+  .text-headline {
+    font-size: var(--text-4xl);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-subheadline {
+    font-size: var(--text-2xl);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-body-lg {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+  }
+  
+  .text-body {
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+  
+  .text-caption {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  
+  .text-overline {
+    font-size: var(--text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  
+  /* Section spacing */
+  .section-padding {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+  }
+  
+  /* Gold text gradient */
+  .text-gold-gradient {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Elegant underline animation */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 h-px w-0 bg-primary transition-all duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+  
+  /* Card styles */
+  .card-luxury {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+    @apply border border-border rounded-2xl transition-all duration-500;
+  }
+  
+  .card-luxury:hover {
+    box-shadow: var(--shadow-glow);
+    @apply border-primary/30 -translate-y-1;
+  }
+  
+  /* Button base */
+  .btn-primary {
+    background: var(--gradient-gold);
+    box-shadow: var(--shadow-glow);
+    @apply px-8 py-4 rounded-full text-primary-foreground font-medium transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply scale-105;
+    filter: brightness(1.1);
+  }
+  
+  .btn-outline {
+    @apply px-8 py-4 rounded-full border border-primary text-primary transition-all duration-300;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-primary text-primary-foreground scale-105;
+  }
+  
+  /* Image overlay */
+  .img-overlay {
+    @apply relative overflow-hidden;
+  }
+  
+  .img-overlay::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 transition-opacity duration-500;
+  }
+  
+  .img-overlay:hover::after {
+    @apply opacity-100;
+  }
+}
