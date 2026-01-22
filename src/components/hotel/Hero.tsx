@@ -3,6 +3,14 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 
 export default function Hero() {
+
+    const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -143,19 +151,17 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
+        //  onClick={scrollToContent}
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown size={32} className="text-primary/60" />
+          <ChevronDown onClick={scrollToContent} size={32} className="text-primary/60" />
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
