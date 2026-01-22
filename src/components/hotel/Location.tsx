@@ -9,7 +9,7 @@ export default function Location() {
   return (
     <section
       ref={sectionRef}
-      id="about"
+      id="location"
       className="section-padding bg-card relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

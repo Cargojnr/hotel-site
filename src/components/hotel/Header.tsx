@@ -7,6 +7,8 @@ const navLinks = [
   { label: "Rooms", href: "#rooms" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
+  { label: "Location", href: "#location" },
+
 ];
 
 export default function Header() {
