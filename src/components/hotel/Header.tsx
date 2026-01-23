@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { hotel } from "@/data/hotel";
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Rooms", href: "#rooms" },
   { label: "Gallery", href: "#gallery" },
+   { label: "Location", href: "#location" },
   { label: "Contact", href: "#contact" },
-  { label: "Location", href: "#location" },
-
 ];
 
 export default function Header() {
@@ -37,8 +37,12 @@ export default function Header() {
           {/* Logo */}
           <a href="#" className="relative z-10">
             <h1 className="font-display text-xl lg:text-2xl tracking-wide">
-              <span className="text-primary">Neighbour</span>
-              <span className="text-foreground font-light">Stay</span>
+              <span className="text-primary">
+                {hotel.name.split(" ")[0]}
+              </span>
+              <span className="text-foreground font-light">
+                {hotel.name.split(" ")[1]}
+              </span>
             </h1>
           </a>
 

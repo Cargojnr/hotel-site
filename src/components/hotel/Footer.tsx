@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react";
+import { hotel } from "@/data/hotel";
 
 const footerLinks = {
   explore: [
@@ -24,8 +25,12 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <h2 className="font-display text-2xl mb-4">
-              <span className="text-primary">Neighbour</span>
-              <span className="text-foreground font-light">Stay</span>
+              <span className="text-primary">
+                {hotel.name.split(" ")[0]}
+              </span>
+              <span className="text-foreground font-light">
+                {hotel.name.split(" ")[1]}
+              </span>
             </h2>
             <p className="text-body text-muted-foreground mb-6">
               Modern hotel websites designed to convert visitors into guests.
@@ -83,27 +88,25 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-body text-muted-foreground">
                 <MapPin size={18} className="mt-0.5 text-primary shrink-0" />
                 <span>
-                  123 Luxury Avenue
-                  <br />
-                  Downtown, City 10001
+                  {hotel.address}
                 </span>
               </li>
               <li>
                 <a
-                  href="tel:+1234567890"
+                  href={`tel:${hotel.phone.main}`}
                   className="flex items-center gap-3 text-body text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone size={18} className="text-primary" />
-                  +1 (234) 567-890
+                  {hotel.phone.main}
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:hello@neighbourstay.com"
+                  href={`mailto:${hotel.mail}`}
                   className="flex items-center gap-3 text-body text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail size={18} className="text-primary" />
-                  hello@neighbourstay.com
+                  {hotel.mail}
                 </a>
               </li>
             </ul>
@@ -113,7 +116,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-caption text-muted-foreground">
-            © {new Date().getFullYear()} NeighbourStay. All rights reserved.
+            © {new Date().getFullYear()} {hotel.name}. All rights reserved.
           </p>
           <div className="flex gap-6 text-caption text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">

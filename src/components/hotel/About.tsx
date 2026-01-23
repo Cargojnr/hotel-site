@@ -1,5 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { hotel } from "@/data/hotel";
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -89,7 +90,7 @@ export default function About() {
                 "Hospitality is not a transaction—it's a relationship."
               </p>
               <p className="text-caption text-muted-foreground">
-                — The NeighbourStay Team
+                — The {hotel.name} Team
               </p>
             </motion.div>
           </div>

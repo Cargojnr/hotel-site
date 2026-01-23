@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { hotel } from "@/data/hotel";
 
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -72,7 +73,7 @@ export default function CTA() {
               className="transition-transform group-hover:translate-x-1"
             />
           </a>
-          <a href="#contact" className="btn-outline">
+          <a href={`tel:${hotel.phone.main}`} className="btn-outline">
             Contact Us
           </a>
         </motion.div>

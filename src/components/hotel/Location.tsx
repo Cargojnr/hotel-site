@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { hotel } from "@/data/hotel";
 
 export default function Location() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export default function Location() {
                 allowFullScreen
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                  title={` Hotel"Location"`}
+                  title={`${hotel.name} "Location"`}
                 />
               </div>
 
@@ -34,7 +35,7 @@ export default function Location() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-overline text-primary mb-4"
             >
-              How to Find Us
+              Where to Find Us
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -79,7 +80,7 @@ export default function Location() {
                 "Hospitality is not a transaction—it's a relationship."
               </p>
               <p className="text-caption text-muted-foreground">
-                — The NeighbourStay Team
+                — The {hotel.name} Team
               </p>
             </motion.div>
           </div>
